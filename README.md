@@ -44,3 +44,7 @@ Make sure your environment meets all requirements (PHP, Composer, etc.) before p
 3. **Verify stock info** is displayed as expected.
 
 ---
+## 4. Example Result
+
+Below is an example of how the stock information appears on the PDP:
+<img width="1916" height="905" alt="Captura de imagem_20251114_231648" src="https://github.com/user-attachments/assets/367b09b4-c634-4309-8b7c-0acd3d082fc6" />
