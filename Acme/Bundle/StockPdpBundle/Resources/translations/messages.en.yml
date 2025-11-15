@@ -1,0 +1,4 @@
+acme.stock.available: "Available stock"
+acme.stock.label: "Stock"
+acme.stock.sold_out: "Out of stock"
+acme.stock.unavailable: "Information unavailable"

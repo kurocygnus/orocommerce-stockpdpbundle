@@ -1,0 +1,13 @@
+layout:
+    actions:
+        - '@setBlockTheme':
+            themes: 'stock_info.html.twig'
+
+        - '@add':
+            id: acme_product_stock_block
+            parentId: product_view_primary_container
+            blockType: block
+            options:
+                visible: true
+                vars:
+                    product: '=data["product"]'

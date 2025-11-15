@@ -1,0 +1,13 @@
+services:
+    Acme\Bundle\StockPdpBundle\Service\StockProvider:
+        arguments:
+            - '@oro_inventory.provider.inventory_quantity'
+        public: true
+        autowire: false
+        autoconfigure: false
+
+    Acme\Bundle\StockPdpBundle\Twig\StockExtension:
+        arguments:
+            - '@Acme\Bundle\StockPdpBundle\Service\StockProvider'
+        tags:
+            - { name: twig.extension }

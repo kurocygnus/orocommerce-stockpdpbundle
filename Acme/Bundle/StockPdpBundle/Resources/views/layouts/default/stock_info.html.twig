@@ -1,0 +1,15 @@
+{% block _acme_product_stock_block_widget %}
+    {% if product is defined %}
+        {% set stock = get_stock_for_product(product) %}
+
+        <div class="acme-stock-info">
+            {% if stock is not null and stock > 0 %}
+                <p><strong>{{ 'acme.stock.available'|trans }}:</strong> {{ stock|number_format(0, '.', ',') }}</p>
+            {% elseif stock is not null and stock == 0 %}
+                <p><strong>{{ 'acme.stock.label'|trans }}:</strong> {{ 'acme.stock.sold_out'|trans }}</p>
+            {% else %}
+                <p><strong>{{ 'acme.stock.label'|trans }}:</strong> {{ 'acme.stock.unavailable'|trans }}</p>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}
