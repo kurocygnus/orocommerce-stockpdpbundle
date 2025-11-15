@@ -16,7 +16,7 @@ Make sure your environment meets all requirements (PHP, Composer, etc.) before p
 
 ## 2. Installing StockPdpBundle
 
-1. **Clone or copy the bundle** into `src/Acme/Bundle/StockPdpBundle`.
+1. **Clone or copy the bundle** into `src`.
 2. **Update Composer autoload:**
 	```bash
 	composer dump-autoload
