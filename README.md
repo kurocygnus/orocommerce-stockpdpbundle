@@ -2,40 +2,65 @@
 
 This bundle adds stock information to the OroCommerce Product Detail Page (PDP).
 
----
 
-## 1. Setting Up OroCommerce Locally
 
-To get started, follow the official OroCommerce installation guide:
+## 1. Setting Up OroCommerce with Docker & Symfony
 
-- [OroCommerce Installation Docs](https://doc.oroinc.com/backend/setup/dev-environment/)
+### Quickstart
 
-Make sure your environment meets all requirements (PHP, Composer, etc.) before proceeding.
+1. **Clone the OroCommerce repository:**
+	```bash
+	git clone -b 6.1.0 https://github.com/oroinc/orocommerce-application.git
+	cd orocommerce-application
+	```
 
----
+2. **Copy environment files:**
+	```bash
+	cp .env-app .env-app.local
+	```
+
+3. **Start Docker containers:**
+	```bash
+	docker compose up -d
+	```
+
+4. **Install project dependencies:**
+	```bash
+	symfony composer install --prefer-dist
+	```
+
+5. **Install OroCommerce using Symfony CLI:**
+	```bash
+	symfony console oro:install -vvv --sample-data=y --application-url=https://127.0.0.1:8000 --language=en --formatting-code=en_US --user-name=admin --user-email=admin@example.com --user-firstname=Admin --user-lastname=User --user-password=admin --organization-name='AAXIS Test' --timeout=0 --env=dev -n
+	```
+
+6. **Access the application:**
+	- Backoffice: https://127.0.0.1:8000/admin
+	- Storefront: https://127.0.0.1:8000/
+
+For advanced configuration, troubleshooting, or updating Docker Compose files, see the [official Docker & Symfony guide](https://doc.oroinc.com/backend/setup/dev-environment/docker-and-symfony/).
+
 
 ## 2. Installing StockPdpBundle
 
 1. **Clone or copy the bundle** into `src`.
 2. **Update Composer autoload:**
 	```bash
-	composer dump-autoload
+	symfony composer dump-autoload
 	```
 3. **Clear the cache:**
 	```bash
-	php bin/console cache:clear
+	symfony console cache:clear
 	```
 4. **(Optional) Warm up cache:**
 	```bash
-	php bin/console cache:warmup
+	symfony console cache:warmup
 	```
 5. **Check services:**
 	Make sure the bundle's services are loaded
-    ```bash
-    symfony console debug:container --parameter=kernel.bundles --format=json | grep AcmeStockPdpBundle
-    ```
-
----
+	```bash
+	symfony console debug:container --parameter=kernel.bundles --format=json | grep AcmeStockPdpBundle
+	```
 
 ## 3. Testing the Functionality
 
